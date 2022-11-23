@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_22_172938) do
+ActiveRecord::Schema.define(version: 2022_11_23_014435) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,17 +28,22 @@ ActiveRecord::Schema.define(version: 2022_11_22_172938) do
     t.string "category_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -48,6 +53,9 @@ ActiveRecord::Schema.define(version: 2022_11_22_172938) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_id", null: false
+    t.integer "favorite_id", null: false
+    t.integer "comments", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -55,6 +63,8 @@ ActiveRecord::Schema.define(version: 2022_11_22_172938) do
     t.text "check"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
   end
 
   create_table "relationships", force: :cascade do |t|
