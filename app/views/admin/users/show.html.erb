@@ -1,2 +1,39 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="d-flex aligin-items-center">
+            <h1 class="p-3 md-10 bg-secondary text-white">
+                <%= @user.last_name %> <%= @user.first_name %> さんのユーザー情報詳細
+            </h1>
+        </div>
+    </div>
+    <div class="row col-sm-8 offset-sm-2">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>氏名</th>
+                    <th>氏名カナ</th>
+                    <th>アカウント名</th>
+                    <th>自己紹介</th>
+                    <th>メールアドレス</th>
+                    <th>ユーザ―ステータス</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= @user.last_name %> <%= @user.first_name %></td>
+                    <td><%= @user.last_name_kana %> <%= @user.first_name_kana %></td>
+                    <td><%= @user.account_name %></td>
+                    <td><%= @user.introduction %></td>
+                    <td><%= @user.email %></td>
+                    <td>
+                        <% if @user.is_deleted == true %>
+                          <p>退会済み</p>
+                        <% else %>
+                          <p>有効</p>
+                        <% end %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
