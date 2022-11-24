@@ -1,2 +1,31 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+    <div class="row">
+        <div class="d-flex aligin-items-center">
+            <h1 class="p-3 md-10 bg-secondary text-white">
+                <%= @user.account_name %> のマイページ
+            </h1>
+        </div>
+    </div>
+    <div class="row col-sm-8 offset-sm-2">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>アカウント名</th>
+                    <th>フォロー</th>
+                    <th>フォロワー</th>
+                    <th>自己紹介</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= @user.account_name %></td>
+                    <td></td>
+                    <td></td>
+                    <td><%= @user.introduction %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+これ以降学習時間のグラフ掲示とタイムライン（自分の分だけ）

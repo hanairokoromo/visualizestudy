@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :admin do
-    get 'posts/show'
-  end
   root to: "public/homes#top"
   
   devise_for :users, skip:[:passwords], controllers:{
