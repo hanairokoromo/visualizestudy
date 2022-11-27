@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex aligin-items-center">
+            <h1 class="p-3 md-10 bg-secondary text-white">
+                <%= @post.account_name %> さんの投稿
+            </h1>
+        </div>
+    </div>
+    <div class="row col-sm-8 offset-sm-2">
+        <table class="table">
+            <tr>
+                <th>アカウント名</th>
+                <th>カテゴリー名</th>
+                <th>学習時間</th>
+                <th>振り返り</th>
+            </tr>
+        </table>
+        <tbody>
+            <tr>
+                <td><%= @post.account_name %></td>
+                <td><%= @post.category_name %></td>
+                <td><%= @post.study_time %></td>
+                <td><%= @post.check %></td>
+            </tr>
+        </tbody>
+    </div>
+</div>
