@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex aligin-items-center">
+            <h1 class="p-3 md-10 bg-secondary text-white">タイムライン</h1>
+        </div>
+    </div>
+    <div class="row col-sm-8 offset-sm-2">
+        <table class="table">
+            <thead class="thead-light">
+                <th>アカウント名</th>
+                <th>カテゴリ名</th>
+                <th>学習時間</th>
+            </thead>
+        </table>
+        <tbody>
+            <%= @posts.each do |post| %>
+            <tr>
+                <td>
+                    <%= link_to user_path(user), class: "btn-link" do %>
+                      <%= post.account_name %>
+                    <% end %>
+                </td>
+                <td><%= post.category_name %></td>
+                <td><%= post.study_time %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </div>
+</div>
