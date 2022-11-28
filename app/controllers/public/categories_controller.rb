@@ -1,17 +1,15 @@
 class Public::CategoriesController < ApplicationController
   def index
     @category = Category.new
-    @categories =Category.all
+    @categories = current_user.categories
   end
   
   def create
     @category = Category.new(category_params)
-    if @category.save
-        redirect_to categories_path
-    else
-        @categories = Category.all
-        render :index
-    end
+    @category.user_id = current_user.id
+    @categories = current_user.categories
+    @category.save
+    redirect_to categories_path(@category)
   end
   
   def edit
@@ -21,12 +19,12 @@ class Public::CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     @category.update(category_params)
-    redirect_to categories_path
+    redirect_to categories_path(@category_id)
   end
   
   private
   
   def category_params
-    params.require(:category).permit(:category_name)
+    params.require(:category).permit(:user_id, :category_name)
   end
 end

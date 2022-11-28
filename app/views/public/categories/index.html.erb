@@ -4,7 +4,7 @@
             <h1 class="p-3 md-10 bg-secondary text-white">カテゴリーを登録しよう！</h1>
         </div>
         <div class="col-md-8 offset-md-1">
-            <%= form_with model: @category, url: categories_path, method: :post do |f| %>
+            <%= form_with model: @category, url: categories_path(@category) do |f| %>
             <div class="form-group">
                 <label for="category_name">カテゴリー名</label>
                 <%= f.text_field :category_name, class: "form-control category_name" %>
@@ -29,7 +29,7 @@
                 　<tr>
                     <td><%= category.category_name %></td>
                     <td></td>
-                　　</tr>
+                　</tr>
                 　<% end %>
             　　</tbody>
             </table>
