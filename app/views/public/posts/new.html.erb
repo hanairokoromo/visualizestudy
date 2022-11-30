@@ -8,11 +8,15 @@
     <%= form_with model: @post, url: posts_path, mehod: :post do |f| %>
     <div class="form-group">
         <label for="category">カテゴリー</label>
-        <%= f.collection_select(:category_id, @categories, :id, :category_name) %>
+        <%= f.collection_select(:category_id, current_user.categories, :id, :category_name) %>
     </div>
     <div class="form-group">
-        <label for="stydy_time">学習時間</label>
-        <%= f.text_field :study_time, placeholder: "小数点第一位まで可！", class: "form-control study_time" %>
+        <label for="start_time">学習開始時刻</label>
+        <%= f.datetime_select :start_time, class: "form-control start_time" %>
+    </div>
+    <div class="form-group">
+        <label for="finish_time">学習終了時刻</label>
+        <%= f.datetime_select :finish_time, class: "form-control finish_time" %>
     </div>
     <div class="form-group">
         <label for="check">振り返り</label>

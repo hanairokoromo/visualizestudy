@@ -9,11 +9,12 @@
             <thead class="thead-light">
                 <th>アカウント名</th>
                 <th>カテゴリ名</th>
-                <th>学習時間</th>
+                <th>学習開始時刻</th>
+                <th>学習終了時刻</th>
             </thead>
         </table>
         <tbody>
-            <%= @posts.each do |post| %>
+            <% @posts.each do |post| %>
             <tr>
                 <td>
                     <%= link_to user_path(user), class: "btn-link" do %>
@@ -21,7 +22,8 @@
                     <% end %>
                 </td>
                 <td><%= post.category_name %></td>
-                <td><%= post.study_time %></td>
+                <td><%= post.start_time %></td>
+                <td><%= post.finish_time %></td>
             </tr>
             <% end %>
         </tbody>
