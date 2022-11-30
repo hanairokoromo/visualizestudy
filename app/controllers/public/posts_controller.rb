@@ -6,7 +6,7 @@ class Public::PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @categories = Category.all
+    @categories = current_user.categories
   end
   
   def create
@@ -45,7 +45,10 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:study_time, :check)
+    params.require(:post).permit(:start_time, :finish_time, :check, :category_id).merge(user_id: current_user.id)
   end
-    
+  
+  def ensure_post
+    @dish = @dishes.find_by(id: params[:id])
+  end
 end
