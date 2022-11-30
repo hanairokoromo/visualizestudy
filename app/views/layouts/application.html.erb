@@ -25,12 +25,30 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
               <li class="nav-item">
+                <%= link_to admin_users_path, class: "btn btn-link" do %>
+                <i class="fa-regular fa-user" style="color: white;"></i>
+                <span class="icon-name text-light">会員一覧</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
                 <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-link" do %>
                 <i class="fas fa-sign-out-alt" style="color: white;"></i>
                 <span class="icon-name text-light">ログアウト</span>
                 <% end %>
               </li>
               <% elsif user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to user_path(current_user), class: "btn btn-link" do %>
+                <i class="fas fa-users" style="color: white;"></i>
+                <span class="icon-name text-light">マイページ</span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to posts_path, class: "btn btn-link" do %>
+                <i class="fa-solid fa-shop" style="color: white;"></i>
+                <span class="icon-name text-light">タイムライン</span>
+                <% end %>
+              </li>
               <li class="nav-item">
                 <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-link" do %>
                 <i class="fas fa-sign-out-alt" style="color: white;"></i>
