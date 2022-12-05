@@ -2,7 +2,7 @@
     <div class="row">
         <div class="d-flex aligin-items-center">
             <h1 class="p-3 md-10 bg-secondary text-white">
-                <%= @post.account_name %> さんの投稿
+                <%= @post.user.account_name %> さんの投稿
             </h1>
         </div>
     </div>
@@ -11,18 +11,25 @@
             <tr>
                 <th>アカウント名</th>
                 <th>カテゴリー名</th>
-                <th>学習時間</th>
+                <th>学習開始時刻</th>
+                <th>学習終了時刻</th>
                 <th>振り返り</th>
             </tr>
         </table>
         <tbody>
             <tr>
-                <td><%= @post.account_name %></td>
-                <td><%= @post.category_name %></td>
-                <td><%= @post.study_time %></td>
+                <td><%= @post.user.account_name %></td>
+                <td><%= @post.category.category_name %></td>
+                <td><%= @post.start_time %></td>
+                <td><%= @post.finish_time %></td>
                 <td><%= @post.check %></td>
             </tr>
         </tbody>
+    </div>
+    <div>
+        <% if @post.user == current_user %>
+          <%= link_to "削除", post_path(@post), method: :delete %>
+        <% end %>
     </div>
     <% if @post.favorited_by?(current_user) %>
     <div>
@@ -35,6 +42,12 @@
         <%= link_to post_favorites_path(@post), method: :post do %>
         ♡ <%= @post.favorites.count %> いいね
         <% end %>
+    </div>
+    <% end %>
+        
+    <% @post.favorites.each do |favorite| %>
+    <div>
+        <%= favorite.user.account_name %>    
     </div>
     <% end %>
 </div>
