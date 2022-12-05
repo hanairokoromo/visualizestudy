@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   root to: "public/homes#top"
   
   devise_for :users, skip:[:passwords], controllers:{
@@ -14,6 +18,9 @@ Rails.application.routes.draw do
         get 'unsubscribe'
         patch 'withdraw'
       end
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'registrations#followings', as: 'followings'
+      get 'followers' => 'registrations#followers', as: 'followers'
     end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
