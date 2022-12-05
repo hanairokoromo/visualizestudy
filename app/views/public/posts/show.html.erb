@@ -18,7 +18,11 @@
         </table>
         <tbody>
             <tr>
-                <td><%= @post.user.account_name %></td>
+                <td>
+                    <%= link_to user_path(@post.user_id), class: "btn btn-link" do %>
+                    <%= @post.user.account_name %>
+                    <% end %>
+                </td>
                 <td><%= @post.category.category_name %></td>
                 <td><%= @post.start_time %></td>
                 <td><%= @post.finish_time %></td>
