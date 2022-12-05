@@ -31,6 +31,31 @@
           <%= link_to "削除", post_path(@post), method: :delete %>
         <% end %>
     </div>
+    
+    <div>
+        コメント件数: <%= @post.comments.count %>
+    </div>
+    <% @post.comments.each do |comment| %>
+    <div>
+        <%= comment.user.account_name %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <%= comment.comment %>
+        <% if comment.user == current_user %>
+          <%= link_to "削除", post_comments_path(comment.post, comment), method: :delete %>
+        <% end %> 
+    </div>
+    <% end %>
+    
+    <%= form_with model: [@post, @comment] do |f| %>
+    <div class="form-group">
+        <label for="comment">コメントする</label>
+        <%= f.text_area :comment, class: "form-control comment" %>
+    </div>
+    <div class="form-group">
+        <%= f.submit "送信する", class: "btn btn-secondary" %>
+    </div>
+    <% end %>
+    
     <% if @post.favorited_by?(current_user) %>
     <div>
         <%= link_to post_favorites_path(@post), method: :delete do %>
