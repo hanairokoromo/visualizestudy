@@ -38,17 +38,14 @@ class Public::PostsController < ApplicationController
   
   def destroy
     @post = Post.find(params[:id])
-    @post.delete(post_params)
+    @post.destroy
     redirect_to post_path
   end
   
   private
   
   def post_params
-    params.require(:post).permit(:start_time, :finish_time, :check, :category_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:start_time, :finish_time, :check, :category_id, :account_name, :category_name).merge(user_id: current_user.id)
   end
   
-  def ensure_post
-    @dish = @dishes.find_by(id: params[:id])
-  end
 end

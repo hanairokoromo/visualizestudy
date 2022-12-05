@@ -11,17 +11,18 @@
                 <th>カテゴリ名</th>
                 <th>学習開始時刻</th>
                 <th>学習終了時刻</th>
+                <th></th>
             </thead>
         </table>
         <tbody>
             <% @posts.each do |post| %>
             <tr>
                 <td>
-                    <%= link_to user_path(user), class: "btn-link" do %>
-                      <%= post.account_name %>
+                    <%= link_to user_path(post.user_id), class: "btn-link" do %>
+                      <%= post.user.account_name %>
                     <% end %>
                 </td>
-                <td><%= post.category_name %></td>
+                <td><%= post.category.category_name %></td>
                 <td><%= post.start_time %></td>
                 <td><%= post.finish_time %></td>
             </tr>

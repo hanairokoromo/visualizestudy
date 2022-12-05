@@ -14,9 +14,10 @@ Rails.application.routes.draw do
         get 'unsubscribe'
         patch 'withdraw'
       end
+    end
+    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
     end
-    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
     resources :categories, only: [:index, :create, :edit, :update]
   end
   
