@@ -24,6 +24,17 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
   
+  def search
+    if params[:keyword].present?
+      @users = User.where('account_name LIKE ?', "%#{params[:keyword]}%").where('introduction LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @users = User.none
+    end
+  end
+  
+  private
+  
   def user_paramas
     params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :encrypted_password, :account_name, :introduction, :is_deleted)
   end

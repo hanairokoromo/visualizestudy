@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       collection do
         get 'unsubscribe'
         patch 'withdraw'
+        get 'search'
       end
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'registrations#followings', as: 'followings'
