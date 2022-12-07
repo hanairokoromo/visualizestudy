@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex aligin-items-center">
+            <h1 class="p-3 md-10 bg-secondary text-white">検索結果</h1>
+        </div>
+    </div>
+    <div class="row col-sm-8 offset-sm-2">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>アカウント名</th>
+                <th>カテゴリ名</th>
+                <th>学習開始時刻</th>
+                <th>学習終了時刻</th>
+              </tr>
+            </thead>
+            <% @posts.each do |post| %>
+            <tbody>
+                <tr>
+                    <td><%= post.user.account_name %></td>
+                    <td><%= post.category.category_name %></td>
+                    <td><%= post.start_time %></td>
+                    <td><%= post.finish_time %></td>
+                </tr>
+            </tbody>
+            <% end %>
+        </table>
+    </div>
+</div>

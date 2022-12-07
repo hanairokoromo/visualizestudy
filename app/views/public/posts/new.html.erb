@@ -6,6 +6,8 @@
     </div>
     
     <%= form_with model: @post, url: posts_path, mehod: :post do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= hidden_field :category_name, value: @post %>
     <div class="form-group">
         <label for="category">カテゴリー</label>
         <%= f.select :category_id, options_from_collection_for_select(current_user.categories, :id, :category_name), class: "form-control" %>

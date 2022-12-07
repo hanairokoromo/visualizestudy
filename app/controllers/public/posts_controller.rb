@@ -7,6 +7,7 @@ class Public::PostsController < ApplicationController
   def new
     @post = Post.new
     @categories = current_user.categories
+    @user = current_user
   end
   
   def create
@@ -43,10 +44,19 @@ class Public::PostsController < ApplicationController
     redirect_to post_path
   end
   
+  def search
+    if params[:keyword].present?
+      @posts = Post.joins(:category).where('category_name LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @posts = Post.all
+    end
+  end
+  
   private
   
   def post_params
-    params.require(:post).permit(:start_time, :finish_time, :check, :category_id, :account_name, :category_name).merge(user_id: current_user.id)
+    params.require(:post).permit(:start_time, :finish_time, :check, :category_id, :account_name, :category_name, :user_id)
   end
   
 end
