@@ -12,6 +12,9 @@
             <label for="keyword">ユーザー検索</label>
             <%= f.text_field :keyword %>
         </div>
+        
+        <%= link_to "いいねした投稿", favorite_user_path(@user) %>
+        
         <div class="form-group">
             <%= f.submit '検索', class: "btn btn-secondary" %>
         </div>

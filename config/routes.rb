@@ -19,6 +19,9 @@ Rails.application.routes.draw do
         patch 'withdraw'
         get 'search'
       end
+      member do
+        get 'favorite'
+      end
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'registrations#followings', as: 'followings'
       get 'followers' => 'registrations#followers', as: 'followers'
