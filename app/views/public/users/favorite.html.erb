@@ -1,0 +1,9 @@
+いいね一覧
+<% if @favorite_posts.present? %>
+  <% @favorite_posts.each do |post| %>
+    <%= post.user.account_name %>
+    <%= post.category.category_name %>
+    <%= post.start_time %>
+    <%= post.finish_time %>
+  <% end %>
+<% end %>

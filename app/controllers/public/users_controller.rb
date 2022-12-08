@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -26,11 +26,16 @@ class Public::UsersController < ApplicationController
   
   def search
     if params[:keyword].present?
-      @users = User.where('account_name LIKE ?', "%#{params[:keyword]}%").where('introduction LIKE ?', "%#{params[:keyword]}%")
+      @users = User.where('account_name LIKE ?', "%#{params[:keyword]}%").or(User.where('introduction LIKE ?', "%#{params[:keyword]}%"))
       @keyword = params[:keyword]
     else
-      @users = User.none
+      @users = User.all
     end
+  end
+  
+  def favorite
+    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
   end
   
   private

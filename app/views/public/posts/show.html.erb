@@ -19,7 +19,7 @@
         <tbody>
             <tr>
                 <td>
-                    <%= link_to user_path(@post.user_id), class: "btn btn-link" do %>
+                    <%= link_to user_path(@post.user.id), class: "btn btn-link" do %>
                     <%= @post.user.account_name %>
                     <% end %>
                 </td>
