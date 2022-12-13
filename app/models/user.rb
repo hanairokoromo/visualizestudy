@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   
   has_many :followings, through: :relationships, source: :followed
-  has_many :followers, through: :reverse_of_relationships, source: :follower 
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  has_one_attached :profile_image
   
   #フォローした時の処理
   def follow(user_id)
@@ -27,5 +28,13 @@ class User < ApplicationRecord
   #フォローしているか判定
   def following?(user)
     followings.include?(user)
+  end
+  
+  def get_profile_image
+    unless profile_image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      profile_image.attach(io: File.open(file_path), filename: "default-image.jpg", content_type: 'image/jpg')
+    end
+    profile_image
   end
 end
