@@ -1,7 +1,9 @@
 class Public::PostsController < ApplicationController
     
   def index
-    @posts = Post.all
+    @user = current_user
+    @follow_users = @user.followings
+    @posts = Post.where(user_id: @follow_users).order("created_at DESC")
   end
   
   def new

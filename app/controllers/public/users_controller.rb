@@ -1,10 +1,6 @@
 class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @post = Post.all
-    @post_by_day = @posts.group_by_day(:created_at).size
-    @chartlabels = @post_by_day.map(&:first).to_json.html_safe
-    @chartdatas = @post_by_day.map(&:second)
   end
 
   def edit
