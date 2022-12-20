@@ -61,6 +61,14 @@
                 <span class="icon-name text-light">ログアウト</span>
                 <% end %>
               </li>
+              <% if unchecked_notifications.any? %>
+                <i class="fa fa-circle" style="color; white;"></i>
+              <% end %>
+              <li class="nav-item">
+                <%= link_to notifications_path, class: "btn btn-link" do %>
+                <span class="icon-name text-light">通知</span>
+                <% end %>
+              </li>
               <% else %>
               <li class="nav-item">
                 <%= link_to new_user_registration_path, class: "btn btn-link" do %>

@@ -34,6 +34,11 @@ Rails.application.routes.draw do
       end
     end
     resources :categories, only: [:index, :create, :edit, :update]
+    resources :notifications, only: [:index] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
   end
   
   
