@@ -5,7 +5,7 @@ class Public::FavoritesController < ApplicationController
         @favorite.save
         redirect_to post_path(@post)
         # 通知の作成
-        @post.create_notigication_by(current_user)
+        @post.create_notification_by(current_user)
         respond_to do |format|
             format.html {redirect_to request.referrer}
                 format.js
