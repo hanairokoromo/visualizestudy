@@ -5,7 +5,7 @@ class Public::CommentsController < ApplicationController
       @comment.post_id = @post.id
       if @comment.save
         # 通知の作成
-        @comment_post.create_notification_comment!(current_user, @comment.id)
+        @post.create_notification_comment!(current_user, @comment.id)
         redirect_to post_path(@post)
       end
     end
@@ -20,6 +20,6 @@ class Public::CommentsController < ApplicationController
     private
     
     def comment_params
-        params.require(:comment).permit(:comment)
+        params.require(:comment).permit(:comment_id, :comment)
     end
 end
