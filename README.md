@@ -20,6 +20,7 @@
 ## 設計書
 - 実装機能リスト　https://docs.google.com/spreadsheets/d/1U9sTrYK3ssjyXbxiBDCnJPVFBNHkJJAKf4VLYahmZlg/edit?usp=sharing
 <...>
+- ER図
 
 ## 開発環境
 - OS：Linux(CentOS)
