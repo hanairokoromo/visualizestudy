@@ -2,7 +2,7 @@ class Post < ApplicationRecord
     belongs_to :user
     belongs_to :category
     has_many :favorites, dependent: :destroy
-    has_many :comments, dependent: :destroy, foreign_key: 'comment_id'
+    has_many :comments, dependent: :destroy
     has_many :notifications, dependent: :destroy
     
     def favorited_by?(user)
