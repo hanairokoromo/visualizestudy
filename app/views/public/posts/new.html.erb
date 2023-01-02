@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="d-flex aligin-items-center">
-            <h1 class="p-3 md-10 bg-secondary text-white">学習を投稿する</h1>
+            <h1 class="p-3 md-10 bg-default text-dark">学習を記録する</h1>
         </div>
     </div>
     
@@ -11,6 +11,7 @@
     <div class="form-group">
         <label for="category">カテゴリー</label>
         <%= f.select :category_id, options_from_collection_for_select(current_user.categories, :id, :category_name), class: "form-control" %>
+        <%= link_to "カテゴリーを追加する", categories_path, class: "glyphicon glyphicon-pencil btn btn-primary" %>
     </div>
     <div class="form-group">
         <label for="start_time">学習開始時刻</label>
@@ -25,7 +26,7 @@
         <%= f.text_area :check, class: "form-control check" %>
     </div>
     <div class="form-group">
-        <%= f.submit '学習を記録', class: "btn btn-secondary" %>
+        <%= f.submit '学習を記録', class: "btn btn-primary" %>
     </div>
     <% end %>
 </div>

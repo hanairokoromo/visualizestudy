@@ -1,22 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="d-flex aligin-items-center">
-            <h1 class="p-3 md-10 bg-secondary text-white">カテゴリーを登録しよう！</h1>
+            <h1 class="p-3 md-10 bg-default text-dark">カテゴリーを追加する</h1>
         </div>
-        <div class="col-md-8 offset-md-1">
+        <div class="col-md-8">
             <%= form_with model: @category, url: categories_path(@category) do |f| %>
             <div class="form-group">
                 <label for="category_name">カテゴリー名</label>
                 <%= f.text_field :category_name, class: "form-control category_name" %>
             </div>
             <div class="form-group">
-                <%= f.submit '登録', class: "btn btn-success" %>
+                <%= f.submit '登録', class: "btn btn-primary" %>
             </div>
             <% end %>
         </div>
         
         <div class="col-md-8 offser-md-1">
-            <h2 class="p-3 md-10 bg-secondary text-center text-white">カテゴリー一覧</h2>
+            <h2 class="p-3 md-10 bg-default text-dark">カテゴリー一覧</h2>
             <table class="table">
                 <thead>
                   <tr>
@@ -28,7 +28,7 @@
                 　<% @categories.each do |category| %>
                 　<tr>
                     <td><%= category.category_name %></td>
-                    <td></td>
+                    <td><%= link_to "編集する", edit_category_path(category), class: "glyphicon glyphicon-pencil btn btn-primary" %></td>
                 　</tr>
                 　<% end %>
             　　</tbody>
