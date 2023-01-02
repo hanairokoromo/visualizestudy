@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="d-flex aligin-items-center">
-            <h1 class="p-3 md-10 bg-secondary text-white">投稿編集</h1>
+            <h1 class="p-3 md-10 bg-default text-dark">学習ログを編集する</h1>
         </div>
     </div>
     
     <%= form_with model: @post, url: post_path(@post), method: :patch do |f| %>
     <div class="form-group">
         <label for="category">カテゴリー</label>
-        <%= f.collection_select(:category_id, current_user.category, :id, :category_name) %>
+        <%= f.select :category_id, options_from_collection_for_select(current_user.categories, :id, :category_name), class: "form-control" %>
     </div>
     <div class="form-group">
         <label for="start_time">学習開始時刻</label>
@@ -23,7 +23,7 @@
         <%= f.text_area :check, class: "form-control check" %>
     </div>
     <div class="form-group">
-        <%= f.submit '更新を保存', class: "btn btn-secondary" %>
+        <%= f.submit '更新を保存', class: "btn btn-primary" %>
     </div>
     <% end %>
 </div>

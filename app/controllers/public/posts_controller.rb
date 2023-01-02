@@ -22,6 +22,7 @@ class Public::PostsController < ApplicationController
   end
   
   def show
+    @user = current_user
     @post = Post.find(params[:id])
     @comment = Comment.new
   end
@@ -33,7 +34,7 @@ class Public::PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
-    if @post.save(post_params)
+    if @post.update(post_params)
         redirect_to post_path(@post.id)
     else
         render :edit
@@ -41,9 +42,10 @@ class Public::PostsController < ApplicationController
   end
   
   def destroy
+    @user = current_user
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to post_path
+    redirect_to user_path
   end
   
   def search

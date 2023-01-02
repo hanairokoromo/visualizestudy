@@ -19,7 +19,9 @@
     <div class="p-3 col-md-6">
             <%= image_tag @user.get_profile_image, height: "100" %>
             <%= @user.account_name %>
-            <%= link_to "編集する", edit_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-info" %>
+            <% if @user == current_user %>
+              <%= link_to "編集する", edit_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-info" %>
+            <% end %>
             <%= link_to "いいねした投稿", favorite_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-primary" %>
             <br>
             <%= @user.introduction %>
@@ -46,9 +48,9 @@
     
     <div class="col-md-10">
         <h3 class="title">学習ログ</h3>
-        <div class="card-list-container py-5">
+        <div class="card-list-container py-10">
         <% @posts.each do |post| %>
-        <div class="card w-50 mx-auto mt-4 shadow-lg">
+        <div class="card w-10 mx-auto mt-4 shadow-lg">
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
@@ -60,11 +62,17 @@
                             <strong><i class="fas fa-flag"></i><span><%= post.user.account_name %> さんの学習ログ</span></strong>
                             <% end %>
                         </p>
+                        <p class="blog-post-meta text-right"><%= post.created_at.strftime('%m月%d日') %></p>
+                        <p class="blog-post-meta"><%= ((post.finish_time-post.start_time)/60).to_i %> 分</p>
                         <p class="card-text">カテゴリー: <%= post.category.category_name %></p>
                         <span><i class="fas fa-user"></i><%= post.user.account_name %> | </span>
                         <span><%= link_to "#{post.comments.count} コメント", post_path(post.id), class: "text-dark" %></span>
-                        <p><%= link_to "編集する", edit_post_path(post.id), class: "glyphicon glyphicon-pencil btn btn-info" %></p>
-                        <span><%= link_to "削除する", post_path, method: :delete, class: "glyphicon glyphicon-pencil btn btn-danger" %></span>
+                        <% if @user == current_user %>
+                          <p>
+                              <%= link_to "編集する", edit_post_path(post.id), class: "glyphicon glyphicon-pencil btn btn-info" %>
+                              <%= link_to "削除する", post_path, method: :delete, class: "glyphicon glyphicon-pencil btn btn-danger" %>
+                          </p>
+                        <% end %>
                     </div>
                 </div>
             </div>
