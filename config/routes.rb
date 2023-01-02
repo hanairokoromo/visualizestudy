@@ -18,9 +18,9 @@ Rails.application.routes.draw do
       member do
         get 'favorite'
       end
-      resource :relationships, only: [:create, :destroy]
-        get 'followings' => 'relationships#followings', as: 'followings'
-        get 'followers' => 'relationships#followers', as: 'followers'
+      resource :relationships, only: [:create, :destroy] 
+          get 'followings' => 'relationships#followings', as: 'followings'
+          get 'followers' => 'relationships#followers', as: 'followers'
     end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]

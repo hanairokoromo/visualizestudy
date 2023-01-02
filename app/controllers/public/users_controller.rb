@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = Post.where(user_id: current_user).order("created_at DESC")
+    @posts = Post.where(user_id: @user).order("created_at DESC")
   end
 
   def edit
