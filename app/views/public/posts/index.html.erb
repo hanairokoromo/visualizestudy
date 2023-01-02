@@ -1,31 +1,21 @@
 <div class="container">
     <div class="row">
         <div class="d-flex aligin-items-center">
-            <h1 class="col-auto p-3 md-10 bg-secondary text-white">タイムライン</h1>
-            <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
-            <div class="form-group p-4 md-10 col-auto form-inline">
-              <label for="keyword">キーワード検索</label>
-              <%= f.text_field :keyword, class: "form-control keyword" %>
-            </div>
-            <div class="form-group form-inline">
-              <%= f.submit "検索", class: "btn btn-secondary" %>
-            </div>
-            <% end %>
+            <h1 class="p-3 md-10 bg-default text-dark">タイムライン</h1>
         </div>
     </div>
-    <div class="row col-sm-8 offset-sm-2">
+    <div class="col-md-6">
         <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
-        <div class="form-group">
-            <label for="keyword">キーワード検索</label>
-            <%= f.text_field :keyword, class: "form-control keyword" %>
-        </div>
-        <div class="form-group">
-            <%= f.submit "検索", class: "btn btn-secondary" %>
-        </div>
+        <div class="input-group form-search">
+            <%= f.text_field :keyword, class: "form-control search-query" %>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary" data-type="last">学習ログを検索</button>
+                 </span>
+            </div>
         <% end %>
-        
-        
-        <div class="card-list-container py-5">
+        </div>
+    </div>
+    <div class="card-list-container py-5">
         <% @posts.each do |post| %>
         <div class="card w-50 mx-auto mt-4 shadow-lg">
             <div class="card-body">
