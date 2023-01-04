@@ -2,7 +2,8 @@
     <div class="col-md-6 p-lg-5 mx-auto my-5">
       <h1 class="display-4 fw-normal">勉強を見える化する</h1>
       <p class="lead fw-normal">ようこそ、びじゅすたへ！　あなたの頑張りを視覚化して学習をサポートします。</p>
-      <a class="btn btn-outline-secondary" href="/users/sign_up">まずは使ってみる</a>
+      <a class="btn btn-outline-secondary" href="/users/sign_up">新規登録</a>
+      <%= link_to "まずは使ってみる（ゲストログイン）", href: "users/guest_sign_in", method: :post, class: "btn btn-outline-secondary" %>
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
