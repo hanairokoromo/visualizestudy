@@ -7,12 +7,10 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
   
-  devise_scope :public do
-    post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
-  end
   
   scope module: :public do
     get 'homes/top'
+    post 'homes/guest_sign_in', to: 'homes#guest_sign_in'
     resources :users, only: [:show, :edit, :update, :unsubscribe, :withdraw] do
       collection do
         get 'unsubscribe'

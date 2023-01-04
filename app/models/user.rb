@@ -51,16 +51,4 @@ class User < ApplicationRecord
     end
   end
   
-  #ゲストログイン
-  def self.guest
-    find_or_create_by!(email: "guest@example.com") do |user|
-      user.password = SecureRandom.alphanumeric
-      user.confirmed_at = Time.now
-      user.first_name = '山田'
-      user.last_name = '太郎'
-      user.first_name_kana = 'やまだ'
-      user.last_name_kana = 'たろう'
-      user.account_name = 'ゲストユーザー'
-    end
-  end
 end
