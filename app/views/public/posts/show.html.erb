@@ -27,18 +27,12 @@
                         <p><%= @post.check %></p>
                         <% if @post.user == current_user %>
                           <%= link_to "編集する", edit_post_path(@post.id), class: "glyphicon glyphicon-pencil btn btn-info" %>
-                          <%= link_to "削除する", user_path, method: :delete, class: "glyphicon glyphicon-pencil btn btn-danger" %>
+                          <%= link_to "削除する", post_path(@post.id), method: :delete, class: "glyphicon glyphicon-pencil btn btn-danger" %>
                         <% end %>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div>
-        <% if @post.user == current_user %>
-          <%= link_to "削除", post_path(@post.id), method: :delete %>
-        <% end %>
     </div>
     
     <div>
