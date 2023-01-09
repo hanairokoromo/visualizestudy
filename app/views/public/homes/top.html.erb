@@ -2,7 +2,7 @@
  <div class="position-relative overflow-hidden p-10 p-md-10 m-md-3 bg-transparent text-center bg-light">
     <div class="col-md-6 p-lg-5 mx-auto my-3">
       <h1 class="display-4 fw-normal">勉強を見える化する</h1>
-      <p class="lead fw-normal">ようこそ、びじゅすたへ！　あなたの頑張りを視覚化して学習をサポートします。</p>
+      <p class="lead fw-normal">ようこそ、びじゅすたへ！</br>あなたの頑張りを視覚化して学習をサポートします。</p>
       <a class="btn btn-outline-secondary" href="/users/sign_up">新規登録</a>
       <%= link_to "まずは使ってみる（ゲストログイン）", homes_guest_sign_in_path, method: :post, class: "btn btn-outline-secondary" %>
     </div>
@@ -12,10 +12,6 @@
   </div>
   
   <div class="container">
-    
-
-
-    <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
 
@@ -34,12 +30,11 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">気になった人や投稿を確認しよう！<span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">気になった人をフォローしたり、いいねやコメントを送ることができます。</p>
+        <h2 class="featurette-heading">気になった人や投稿を確認しよう！</h2>
+        <p class="lead">【いいね・コメント・フォロー機能】</br>気になった人をフォローしたり、</br>いいねやコメントを送ることができます。</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+        <%= image_tag "いいね.png", height: "300" %>
       </div>
     </div>
 
@@ -47,11 +42,11 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">一緒に勉強する仲間とつながろう！<span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">検索機能を使って同じ目標に向かって頑張るユーザーとつながることができます。</p>
+        <h2 class="featurette-heading">一緒に勉強する仲間とつながろう！</h2>
+        <p class="lead">【検索機能】</br>検索機能を使って同じ目標に向かって頑張るユーザーと</br>つながることができます。</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <%= image_tag "検索.png", height: "300" %>
 
       </div>
     </div>
