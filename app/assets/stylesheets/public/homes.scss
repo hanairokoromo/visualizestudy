@@ -1,4 +1,7 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.jumbotron { background-image:url(jess-bailey-l3N9Q27zULw-unsplash.jpg) center no-repeat; background-size: cover;}
+.jumbotron { 
+    background-image: image-url("jess-bailey-l3N9Q27zULw-unsplash.jpg") center no-repeat; background-size: cover;
+    
+}
