@@ -21,8 +21,8 @@
             <%= @user.account_name %>
             <% if @user == current_user %>
               <%= link_to "編集する", edit_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-info" %>
+              <%= link_to "いいねした投稿", favorite_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-primary" %>
             <% end %>
-            <%= link_to "いいねした投稿", favorite_user_path(@user), class: "glyphicon glyphicon-pencil btn btn-primary" %>
             <br>
             <%= @user.introduction %>
             <br>
