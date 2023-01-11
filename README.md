@@ -19,8 +19,8 @@
 
 ## 設計書
 - 実装機能リスト　https://docs.google.com/spreadsheets/d/1U9sTrYK3ssjyXbxiBDCnJPVFBNHkJJAKf4VLYahmZlg/edit?usp=sharing
-<...>
-- ER図
+- ER図　https://drive.google.com/file/d/1gDaFoUOHo-BziGpf-8LtvwcDyntprNv_/view?usp=sharing
+- 詳細設計　https://docs.google.com/spreadsheets/d/1qqCmbahyCCg4xe42JJ6cDVQ-HECh021uyBb5Pygai6k/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -29,6 +29,4 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-- 使用検討中
 
