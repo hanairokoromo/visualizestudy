@@ -17,7 +17,11 @@
       </thead>
       <tbody>
           <tr>
-            　<td><%= image_tag user.get_profile_image, height: "80", class: "mt-3 rounded-circle"; %></td>
+            　<td>
+            　  <%= link_to user_path(user.id) do %>
+            　 <%= image_tag user.get_profile_image, height: "80", class: "mt-3 rounded-circle"; %>
+            　 <% end %>
+            　 </td>
               <td><%= user.account_name %></td>
               <td><%= user.introduction %></td>
           </tr>
