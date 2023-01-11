@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .jumbotron { 
-    background-image: image-url("jess-bailey-l3N9Q27zULw-unsplash.jpg") center no-repeat;
+    background-image: image-url("jess-bailey-l3N9Q27zULw-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
 }
