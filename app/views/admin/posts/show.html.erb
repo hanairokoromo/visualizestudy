@@ -1,55 +1,57 @@
 <div class="container">
-    <div class="row">
-        <div class="aligin-items-center">
-              <h1 class="p-3 md-10 bg-secondary text-white">
-                <%= @post.user.account_name %> さんの学習ログ
-              </h1>
-        </div>
+  <div class="row">
+    <div class="aligin-items-center">
+      <h1 class="p-3 md-10 bg-secondary text-white">
+        <%= @post.user.account_name %> さんの学習ログ
+      </h1>
     </div>
-    <div class="card-list-container py-10">
-      <div class="card w-100 mx-auto mt-4 shadow-lg">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-2">
-              <%= link_to admin_user_path(@post.user.id) do %>
+  </div>
+  <div class="card-list-container py-10">
+    <div class="card w-100 mx-auto mt-4 shadow-lg">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2">
+            <%= link_to admin_user_path(@post.user.id) do %>
               <%= image_tag @post.user.get_profile_image, height: "80", class: "mt-3 rounded-circle"; %>
-              <% end %>
-            </div>
-            <div class="col-10">
-              <p class="card-title">
-                <strong><i class="fas fa-flag"></i><span><%= @post.user.account_name %> さんの学習ログ</span></strong>
-              </p>
-              <p class="blog-post-meta"><%= @post.created_at.strftime('%m月%d日') %></p>
-              <p class="card-text">カテゴリー: <%= @post.category.category_name %></p>
-                <span><i class="fas fa-user"></i><%= @post.user.account_name %></span>
-              <p class="blog-post-meta"><%= ((@post.finish_time-@post.start_time)/60).to_i %> 分</p>
-              <p><%= @post.check %></p>
-            </div>
+            <% end %>
+          </div>
+          <div class="col-10">
+            <p class="card-title">
+              <strong><i class="fas fa-flag"></i><span><%= @post.user.account_name %> さんの学習ログ</span></strong>
+            </p>
+            <p class="blog-post-meta"><%= @post.created_at.strftime('%m月%d日') %></p>
+            <p class="card-text">カテゴリー: <%= @post.category.category_name %></p>
+            <span><i class="fas fa-user"></i><%= @post.user.account_name %></span>
+            <p class="blog-post-meta"><%= ((@post.finish_time-@post.start_time)/60).to_i %> 分</p>
+            <p><%= @post.check %></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
                 
-    <div>
-      コメント件数: <%= @post.comments.count %>
-    </div>      
-    <% @post.comments.each do |comment| %>
-    <div>
-      <%= comment.user.account_name %>
-      <%= comment.created_at.strftime('%Y/%m/%d') %>
-      <%= comment.comment %>
-    </div>
-    <% end %>
-    <div>
-       ♥ <%= @post.favorites.count %>　いいね
-    </div>
+  <div>
+    コメント件数: <%= @post.comments.count %>
+  </div>
+  
+  <% @post.comments.each do |comment| %>
+  <div>
+    <%= comment.user.account_name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %>
+    <%= comment.comment %>
+  </div>
+  <% end %>
+  
+  <div>
+     ♥ <%= @post.favorites.count %>　いいね
+  </div>
         
-    <% @post.favorites.each do |favorite| %>
-    <div>
-      <%= favorite.user.account_name %>    
-    </div>
-    <% end %>
-    <div>
-      <%= link_to '戻る', admin_root_path, class: "btn btn-secondary" %>
-    </div>
+  <% @post.favorites.each do |favorite| %>
+  <div>
+    <%= favorite.user.account_name %>    
+  </div>
+  <% end %>
+  <div>
+    <%= link_to '戻る', admin_root_path, class: "btn btn-secondary" %>
+  </div>
 </div>
