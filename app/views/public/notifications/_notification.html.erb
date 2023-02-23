@@ -2,12 +2,12 @@
 <% post = notification.post %>
 
 <div class="user-view clearfix">
-    <%= link_to user_path(notification.visitor) do %>
+  <%= link_to user_path(notification.visitor) do %>
     <%= image_tag visitor.profile_image, height: "80", class: "mt-3 rounded-circle"; %>
-    <% end %>
-    <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words((notification.created_at))} 前)" %></span>
-    <br>
-    <% if !@comment.nil? %>
+  <% end %>
+  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words((notification.created_at))} 前)" %></span>
+  <br>
+  <% if !@comment.nil? %>
     <p class="moderate-font text-rightr" style="color: #C0C0C0;"><%= @comment %></p>
-    <% end %>
+  <% end %>
 </div>
