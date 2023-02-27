@@ -8,6 +8,9 @@ class Public::UsersController < ApplicationController
 
   def edit
     @user = current_user
+    if @user.email == "guest@example.com"
+      redirect_to root_path
+    end
   end
 
   def update
@@ -18,6 +21,9 @@ class Public::UsersController < ApplicationController
 
   def unsubscribe
     @user = current_user
+    if @user.email == "guest@example.com"
+      redirect_to root_path
+    end
   end
 
   def withdraw
