@@ -31,6 +31,9 @@ class Public::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @categories = Category.all
+    unless @post.user == current_user
+      redirect_to post_path(@post.id)
+    end
   end
   
   def update
